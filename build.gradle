@@ -1,0 +1,51 @@
+import org.springframework.boot.gradle.plugin.ResolveMainClassName
+
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.5'
+	id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.excel'
+version = '0.0.1-SNAPSHOT'
+
+
+
+java {
+	sourceCompatibility = '17'
+}
+
+repositories {
+
+	maven {
+		//url "${sunatPUrepo}libs-release"
+		url "http://artifactory.insi.sunat.peru:7003/artifactory/remote-repo-libs"
+
+		credentials {
+			username = "test"
+			password = "12345678"
+		}
+		allowInsecureProtocol = true
+	}
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'com.itextpdf:itextpdf:5.5.13.3'
+	implementation 'org.apache.poi:poi:5.0.0'
+	implementation 'com.itextpdf:kernel:7.2.1'
+	implementation 'com.itextpdf:layout:7.2.1'
+	//implementation 'org.jodconverter:jodconverter-local-lo:4.4.7'
+	implementation 'org.jodconverter:jodconverter-local-oo:4.4.7'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+
+
+
+

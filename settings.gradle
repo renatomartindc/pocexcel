@@ -1,0 +1,17 @@
+pluginManagement {
+    repositories {
+
+        maven {
+            //url "${sunatPUrepo}libs-release"
+            url "http://artifactory.insi.sunat.peru:7003/artifactory/remote-repo-libs"
+
+            credentials {
+                username = "test"
+                password = "12345678"
+            }
+            allowInsecureProtocol = true
+        }
+    }
+}
+rootProject.name = 'PocExcel'
+
